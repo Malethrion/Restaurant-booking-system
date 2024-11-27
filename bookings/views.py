@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .forms import UserRegistrationForm  # Importing form
+from django.shortcuts import render, redirect
+from .forms import UserRegistrationForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':  # If the form is submitted
@@ -9,4 +10,9 @@ def register(request):
             return redirect('login')  # Redirect the user to the login page
     else:
         form = UserRegistrationForm()  # Display an empty form
-    return render(request, 'register.html', {'form': form})  # Render the template
+    return render(request, 'bookings//template/register.html', {'form': form})  # Render the template
+
+@login_required
+def book_table(request):
+    # Logic for booking a table
+    pass
