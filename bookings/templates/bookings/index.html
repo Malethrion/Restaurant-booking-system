@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-</head>
-<body>
-    <h1>Welcome to the Restaurant Booking System</h1>
-    <p><a href="{% url 'register' %}">Register Here</a></p>
-</body>
-</html>
+{% extends 'bookings/base.html' %}
+
+{% block title %}
+Welcome to the Restaurant Booking System
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="display-4">Welcome to the Restaurant Booking System</h1>
+    <p class="lead">Book your table online and enjoy a fantastic dining experience.</p>
+    <hr class="my-4">
+    <p>
+        <a class="btn btn-primary btn-lg" href="{% url 'list_reservations' %}" role="button">View Reservations</a>
+        <a class="btn btn-secondary btn-lg" href="{% url 'register' %}" role="button">Register Now</a>
+    </p>
+</div>
+{% endblock %}
