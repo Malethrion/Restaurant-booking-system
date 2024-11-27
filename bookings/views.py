@@ -17,6 +17,31 @@ def create_reservation(request):
     return render(request, 'bookings/create_reservation.html', {'form': form})
 
 
+def list_reservations(request):
+    reservations = Reservation.objects.all()
+    return render(request, 'bookings/list_reservations.html', {'reservations': reservations})
+
+
+def update_reservation(request, pk):
+    reservation = get_object_or_404(Reservation, pk=pk)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            return redirect('list_reservations')
+    else:
+        form = ReservationForm(instance=reservation)
+    return render(request, 'bookings/update_reservation.html', {'form': form})
+
+
+def delete_reservation(request, pk):
+    reservation = get_object_or_404(Reservation, pk=pk)
+    if request.method == 'POST':
+        reservation.delete()
+        return redirect('list_reservations')
+    return render(request, 'bookings/delete_reservation.html', {'reservation': reservation})
+
+
 def index(request):
     return render(request, 'bookings/index.html')  # Render the index.html template
 
