@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Reservations</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Guests</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ reservation.customer_name }}</td>
+                <td>{{ reservation.date }}</td>
+                <td>{{ reservation.time }}</td>
+                <td>{{ reservation.guests }}</td>
+                <td>{{ reservation.contact_email }}</td>
+                <td>
+                    <a href="{% url 'update_reservation' reservation.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'delete_reservation' reservation.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No reservations yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'create_reservation' %}" class="btn btn-success">New Reservation</a>
+</div>
+{% endblock %}
