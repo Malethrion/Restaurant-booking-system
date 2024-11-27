@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Edit Reservation
+{% endblock %}
+
 {% block content %}
-<div class="container mt-5">
-    <h2>Edit Reservation</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary mt-3">Update</button>
-    </form>
+<div class="card mt-5 mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <h2 class="card-title text-center">Edit Reservation</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3 w-100">Update</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
