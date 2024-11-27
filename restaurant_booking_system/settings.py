@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-malethrion-restaurantbo-6ur6tqw5ol3.ws.codeinstitute-ide.net']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-malethrion-restaurantbo-6ur6tqw5ol3.ws.codeinstitute-ide.net',
+]
+
+
 
 # Application definition
 
