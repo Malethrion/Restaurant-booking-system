@@ -55,3 +55,8 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 - Stack Overflow: Adapted logic for form handling from [link].
 
 -use Django's built-in UserCreationForm, which already includes fields for username, password, and password confirmation.
+
+Document your process, such as:
+How you implemented CRUD.
+How you tested your application.
+Screenshots of your app in action.
