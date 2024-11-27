@@ -4,8 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReservationForm
 from .models import Reservation
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def create_reservation(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
