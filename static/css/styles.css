@@ -1,0 +1,36 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #495057;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+button {
+    cursor: pointer;
+}
+
