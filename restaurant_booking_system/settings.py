@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from pprint import pprint
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +32,11 @@ TEMPLATES = [
         },
     },
 ]
+
+
+# Print the directories Django is searching for templates:
+print("TEMPLATE DIRS:", TEMPLATES[0]['DIRS'])
+print("BASE_DIR:", BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
