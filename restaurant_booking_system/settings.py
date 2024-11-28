@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Specify the templates folder
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Add this line to include the templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -44,12 +44,14 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-malethrion-restaurantbo-lpmvjcsz5n7.ws.codeinstitute-ide.net',
     '8000-malethrion-restaurantbo-j9yvbzkcohs.ws.codeinstitute-ide.net',
+    '8000-malethrion-restaurantbo-d9254lzvsan.ws.codeinstitute-ide.net',
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-malethrion-restaurantbo-j9yvbzkcohs.ws.codeinstitute-ide.net',
     'https://8000-malethrion-restaurantbo-lpmvjcsz5n7.ws.codeinstitute-ide.net',
+    'https://8000-malethrion-restaurantbo-d9254lzvsan.ws.codeinstitute-ide.net',
 ]
 
 
@@ -147,9 +149,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
