@@ -1,5 +1,4 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -9,5 +8,4 @@ urlpatterns = [
     path('reservations/new/', views.create_reservation, name='create_reservation'),  # Create reservation
     path('reservations/<int:pk>/edit/', views.update_reservation, name='update_reservation'),  # Update reservation
     path('reservations/<int:pk>/delete/', views.delete_reservation, name='delete_reservation'),  # Delete reservation
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),  # Login view
 ]
