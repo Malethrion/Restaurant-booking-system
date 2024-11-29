@@ -47,6 +47,8 @@
 /* GENERAL STYLES */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: url("../img/marble-background.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .navbar-brand {
@@ -78,4 +80,5 @@ body {
         height: 60vh;
     }
 }
+
 

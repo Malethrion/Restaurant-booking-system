@@ -42,21 +42,21 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="hero-section text-center text-white d-flex align-items-center justify-content-center">
-        <div>
-            <h1>Welcome to Cucina Romana</h1>
-            <p>Book your table online and enjoy a taste of Italy.</p>
+    <div class="hero-section">
+        <div class="hero-content text-center">
+            <h1 class="display-4">Welcome to Cucina Romana</h1>
+            <p class="lead">Experience the flavors of Italy with authentic cuisine and a cozy atmosphere.</p>
             <a href="{% url 'list_reservations' %}" class="btn btn-danger btn-lg">View Reservations</a>
             <a href="{% url 'register' %}" class="btn btn-secondary btn-lg ms-2">Register Now</a>
         </div>
     </div>
 
+    <hr class="decorative-divider my-5">
+
     <div class="container mt-4">
         {% block content %}
         {% endblock %}
     </div>
-
     <footer class="footer bg-light text-center mt-5 py-3">
         <p>&copy; 2024 Cucina Romana</p>
         <div class="social-media-links">
@@ -70,4 +70,5 @@
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
+
 
