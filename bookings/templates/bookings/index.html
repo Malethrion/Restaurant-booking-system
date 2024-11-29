@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Welcome to Cucina Romana
+{% endblock %}
+
+{% block hero %}
+<div class="hero-section text-center">
+    <div class="hero-content">
+        <h1>Welcome to Cucina Romana</h1>
+        <p>Experience the flavors of Italy with authentic cuisine and a cozy atmosphere.</p>
+        <a href="{% url 'list_reservations' %}" class="btn btn-danger btn-lg">View Reservations</a>
+        <a href="{% url 'register' %}" class="btn btn-secondary btn-lg ms-2">Register Now</a>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-<!-- Add any additional content you want here, without duplicating the hero section -->
+<div class="text-center mt-5">
+    <h2 class="display-6">Reserve Your Table</h2>
+    <p>Book your table online and enjoy a fantastic dining experience.</p>
+</div>
 {% endblock %}
