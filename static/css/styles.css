@@ -2,8 +2,8 @@
 
 /* HERO SECTION */
 .hero-section {
-    height: 80vh;
-    background: url("../img/restaurant-hero.jpg") no-repeat center center/cover;
+    height: 100vh; /* Full height of the viewport for better fit */
+    background: url("../img/roman-hero.jpg") no-repeat center center/cover; /* Ensures background scales nicely */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,10 +75,10 @@ body {
     background-color: #707b7c;
 }
 
+/* MEDIA QUERY */
 @media (max-width: 768px) {
     .hero-section {
         height: 60vh;
     }
 }
-
 
