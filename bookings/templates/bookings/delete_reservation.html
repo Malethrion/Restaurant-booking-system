@@ -5,8 +5,8 @@ Delete Reservation
 {% endblock %}
 
 {% block content %}
-<div class="text-center mt-5">
-    <h2 class="text-danger">Delete Reservation</h2>
+<div class="text-center mt-5 p-4 rounded" style="max-width: 600px; background: rgba(255, 255, 255, 0.9); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); margin: auto;">
+    <h2 class="text-danger" style="font-family: 'Georgia', serif;">Delete Reservation</h2>
     <p>Are you sure you want to delete <strong>{{ reservation.customer_name }}</strong>?</p>
     <form method="post" class="d-inline">
         {% csrf_token %}
@@ -15,3 +15,4 @@ Delete Reservation
     <a href="{% url 'list_reservations' %}" class="btn btn-secondary">Cancel</a>
 </div>
 {% endblock %}
+
