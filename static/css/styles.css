@@ -68,17 +68,19 @@
 
 /* Footer Styling */
 .footer {
-    background-color: #333;
-    color: #ffc;
+    background-color: #343a40;
+    color: #f8f8f8;
     padding: 20px 0;
 }
 
 .footer .social-media-links a {
-    margin: 0 10px;
+    margin: 0 15px;
     display: inline-block;
     transition: transform 0.3s;
+    color: #f8f8f8;
 }
 
 .footer .social-media-links a:hover {
     transform: scale(1.1);
+    color: #d9534f;
 }
