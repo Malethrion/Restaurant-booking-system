@@ -65,6 +65,14 @@
     border: none;
 }
 
+/* Decorative Divider */
+.decorative-divider {
+    border: none;
+    height: 3px;
+    background: linear-gradient(to right, #d9534f, #f8f8f8, #5a5a5a);
+    width: 60%;
+    margin: 0 auto;
+}
 
 /* Footer Styling */
 .footer {
