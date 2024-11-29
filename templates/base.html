@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">Cucina Romana</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -42,22 +42,23 @@
         </div>
     </nav>
 
-    <div class="hero-section">
-        <div class="hero-content text-center">
-            <h1 class="display-4">Welcome to Cucina Romana</h1>
-            <p class="lead">Experience the flavors of Italy with authentic cuisine and a cozy atmosphere.</p>
+    <div class="hero-section text-center">
+        <div class="hero-content">
+            <h1>Welcome to Cucina Romana</h1>
+            <p>Experience the flavors of Italy with authentic cuisine and a cozy atmosphere.</p>
             <a href="{% url 'list_reservations' %}" class="btn btn-danger btn-lg">View Reservations</a>
             <a href="{% url 'register' %}" class="btn btn-secondary btn-lg ms-2">Register Now</a>
         </div>
     </div>
 
-    <hr class="decorative-divider my-5">
+    <hr class="decorative-divider">
 
     <div class="container mt-4">
         {% block content %}
         {% endblock %}
     </div>
-    <footer class="footer bg-light text-center mt-5 py-3">
+
+    <footer class="footer text-center">
         <p>&copy; 2024 Cucina Romana</p>
         <div class="social-media-links">
             <a href="#"><img src="{% static 'img/facebook-icon.png' %}" alt="Facebook"></a>
