@@ -1,0 +1,35 @@
+/* Navbar Custom Styling */
+.navbar-brand {
+    font-family: 'Cursive', serif;
+    font-size: 1.5rem;
+    color: #f5dd5d !important;
+}
+
+.navbar-nav .nav-link {
+    color: #ffc !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f5dd5d !important;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-image: url('../img/hero.jpg'); /* Replace with an appropriate image */
+    height: 75vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
