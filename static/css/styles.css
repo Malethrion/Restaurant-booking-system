@@ -204,3 +204,16 @@ h2, h3 {
     color: #c0392b;
 }
 
+/* MEDIA QUERIES FOR MENU PAGE */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.4rem;
+    }
+}
