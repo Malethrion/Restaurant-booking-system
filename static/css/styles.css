@@ -216,4 +216,15 @@ h2, h3 {
     h3 {
         font-size: 1.4rem;
     }
+} 
+
+/* Footer Social Media Icons */
+.social-media-links img {
+    width: 32px; /* Set the size of the icons */
+    margin: 0 10px;
+    transition: transform 0.2s; /* Add a transition effect */
+}
+
+.social-media-links img:hover {
+    transform: scale(1.1); /* Slightly enlarge the icons when hovered */
 }
