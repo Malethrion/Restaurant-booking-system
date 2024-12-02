@@ -49,12 +49,12 @@ print("BASE_DIR:", BASE_DIR)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-malethrion-restaurantbo-6ijymup2423.ws.codeinstitute-ide.net'
+    '8000-malethrion-restaurantbo-tix3ckjltgj.ws.codeinstitute-ide.net',
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-malethrion-restaurantbo-6ijymup2423.ws.codeinstitute-ide.net',
+    'https://8000-malethrion-restaurantbo-tix3ckjltgj.ws.codeinstitute-ide.net',
     ]
 
 

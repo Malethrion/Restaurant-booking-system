@@ -62,3 +62,7 @@ def register(request):
 def book_table(request):
     # Logic for booking a table
     pass
+
+
+def menu(request):
+    return render(request, 'menu.html')

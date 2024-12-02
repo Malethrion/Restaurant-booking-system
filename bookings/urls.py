@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('menu/', views.menu, name='menu'),
     path('', views.index, name='index'),  # Root URL for the bookings app
     path('register/', views.register, name='register'),  # Registration URL
     path('reservations/', views.list_reservations, name='list_reservations'),  # Reservations list
