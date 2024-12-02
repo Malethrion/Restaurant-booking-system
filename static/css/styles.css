@@ -179,4 +179,28 @@ body {
     }
 }
 
+/* MENU PAGE STYLES */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.list-group-item {
+    font-size: 1.1rem;
+    font-family: 'Georgia', serif;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #dedede;
+}
+
+h2, h3 {
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+}
+
+.list-group-item span {
+    font-weight: bold;
+    color: #c0392b;
+}
 
