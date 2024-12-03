@@ -99,3 +99,9 @@ def book_table(request):
 
 def menu(request):
     return render(request, 'menu.html')
+
+# Render email content
+message = render_to_string('bookings/email/email_verification.html', {
+    'user': user,
+    'activation_link': activation_link,
+})
