@@ -2,18 +2,17 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from env.py
-env_path = Path(__file__).resolve().parent.parent / "env.py"
-if os.path.exists(env_path):
-    load_dotenv(dotenv_path=env_path)
+# Load environment variables from .env file
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Secret Key from env.py
+# Secret Key from .env file
 SECRET_KEY = os.getenv('SECRET_KEY')
 if not SECRET_KEY:
-    raise ValueError("No SECRET_KEY set for Django application in env.py")
+    raise ValueError("No SECRET_KEY set for Django application in .env")
 
 # Quick-start development settings - unsuitable for production
 DEBUG = True
