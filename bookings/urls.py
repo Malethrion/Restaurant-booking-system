@@ -9,4 +9,5 @@ urlpatterns = [
     path('reservations/new/', views.create_reservation, name='create_reservation'),  # Create reservation
     path('reservations/<int:pk>/edit/', views.update_reservation, name='update_reservation'),  # Update reservation
     path('reservations/<int:pk>/delete/', views.delete_reservation, name='delete_reservation'),  # Delete reservation
+    path('activate/<uidb64>/<token>/', views.activate, name='activate'),
 ]
