@@ -10,10 +10,12 @@ Register
         <h2 class="card-title text-center" style="font-family: 'Georgia', serif;">Register</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.email.label_tag }} {{ form.email }}  <!-- Include email field explicitly -->
+            {{ form.username.label_tag }} {{ form.username }}  <!-- Include username field explicitly -->
+            {{ form.password1.label_tag }} {{ form.password1 }}  <!-- Include password field explicitly -->
+            {{ form.password2.label_tag }} {{ form.password2 }}  <!-- Include confirm password field explicitly -->
             <button type="submit" class="btn btn-danger mt-3 w-100">Register</button>
         </form>
     </div>
 </div>
 {% endblock %}
-

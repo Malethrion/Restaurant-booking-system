@@ -49,12 +49,12 @@ print("BASE_DIR:", BASE_DIR)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-malethrion-restaurantbo-tix3ckjltgj.ws.codeinstitute-ide.net',
+    '8000-malethrion-restaurantbo-x0eiqzk4u9g.ws.codeinstitute-ide.net',
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-malethrion-restaurantbo-tix3ckjltgj.ws.codeinstitute-ide.net',
+    'https://8000-malethrion-restaurantbo-x0eiqzk4u9g.ws.codeinstitute-ide.net',
     ]
 
 
@@ -83,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'restaurant_booking_system.urls'
@@ -163,3 +164,5 @@ EMAIL_HOST_PASSWORD = 'your-email-password'
 
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
+
+SITE_ID = 1
