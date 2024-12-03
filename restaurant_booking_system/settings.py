@@ -12,38 +12,19 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-from pprint import pprint
 
-# Secret Key from env.py
-SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret-key')
+# Load environment variables from env.py if it exists
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Add this line to include the templates directory
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-
-# Print the directories Django is searching for templates:
-print("TEMPLATE DIRS:", TEMPLATES[0]['DIRS'])
-print("BASE_DIR:", BASE_DIR)
+# Load SECRET_KEY from environment variable
+SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret-key')  # Removed from settings.py to improve security
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -52,11 +33,9 @@ ALLOWED_HOSTS = [
     '8000-malethrion-restaurantbo-x0eiqzk4u9g.ws.codeinstitute-ide.net',
 ]
 
-
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-malethrion-restaurantbo-x0eiqzk4u9g.ws.codeinstitute-ide.net',
-    ]
-
+]
 
 # Application definition
 
@@ -88,9 +67,23 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'restaurant_booking_system.urls'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Include templates directory
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'restaurant_booking_system.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -101,7 +94,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -121,10 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# Redirect URLs for login/logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -137,15 +128,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# Static files settings
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This directory will contain collected static files for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for collected static files for production
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # This directory is where your custom static files should be
+    os.path.join(BASE_DIR, 'static'),  # Directory for custom static files
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -155,14 +144,22 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Email backend settings for email verification
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@example.com'
-EMAIL_HOST_PASSWORD = 'your-email-password'
+EMAIL_HOST_USER = 'your-email@example.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your email password
 
+# Django Allauth settings for email verification
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
+# Required for Django Allauth
 SITE_ID = 1
+
+# Debugging purposes
+if DEBUG:
+    print("TEMPLATE DIRS:", TEMPLATES[0]['DIRS'])
+    print("BASE_DIR:", BASE_DIR)
