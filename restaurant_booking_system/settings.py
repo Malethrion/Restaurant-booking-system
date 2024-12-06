@@ -9,6 +9,7 @@ load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Secret Key from .env file
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -19,7 +20,11 @@ if not SECRET_KEY:
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',
+    ALLOWED_HOSTS = [
+    '8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',  # For your development environment
+    'restaurant_booking_system.herokuapp.com',  # For your Heroku app
+    'localhost',  # For local development
+]
 ]
 
 CSRF_TRUSTED_ORIGINS = [
