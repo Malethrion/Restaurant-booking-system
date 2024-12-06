@@ -18,11 +18,11 @@ if not SECRET_KEY:
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-malethrion-restaurantbo-x0eiqzk4u9g.ws.codeinstitute-ide.net',
+    '8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-malethrion-restaurantbo-x0eiqzk4u9g.ws.codeinstitute-ide.net',
+    'https://8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',
 ]
 
 # Application definition
