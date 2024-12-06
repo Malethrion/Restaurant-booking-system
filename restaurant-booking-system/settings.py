@@ -17,16 +17,18 @@ if not SECRET_KEY:
     raise ValueError("No SECRET_KEY set for Django application in .env")
 
 # Quick-start development settings - unsuitable for production
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = [
-    '8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',  # For your development environment
+    '8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',
+    'restaurant-booking-system123-2102e902d1fa.herokuapp.com',  # For your development environment
     'restaurant-booking-system.herokuapp.com',  # For your Heroku app
-    'localhost',  # For local development
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',
+    'https://restaurant-booking-system123-2102e902d1fa.herokuapp.com',
+    'https://restaurant-booking-system.herokuapp.com',
 ]
 
 # Application definition
