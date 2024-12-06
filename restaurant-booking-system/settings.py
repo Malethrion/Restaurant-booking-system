@@ -21,7 +21,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     '8000-malethrion-restaurantbo-ixlo6du21ur.ws.codeinstitute-ide.net',  # For your development environment
-    'restaurant_booking_system.herokuapp.com',  # For your Heroku app
+    'restaurant-booking-system.herokuapp.com',  # For your Heroku app
     'localhost',  # For local development
 ]
 
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'restaurant_booking_system.urls'
+ROOT_URLCONF = 'restaurant-booking-system.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'restaurant_booking_system.wsgi.application'
+WSGI_APPLICATION = 'restaurant-booking-system.wsgi.application'
 
 # Database
 DATABASES = {
