@@ -4,7 +4,7 @@
 
 Explore the live application at: [Deployed Site](https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/).
 
-![Restaurant Booking System](./docs/images/header.jpg)
+![Restaurant Booking System](static/img/header.png)
 
 ---
 
