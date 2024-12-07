@@ -59,3 +59,37 @@ The **Restaurant Booking System** aims to provide a user-friendly experience for
 
 ---
 
+## Technologies Used
+
+### Languages Used:
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **Python**
+
+### Python Modules Imported:
+- Django
+- Gunicorn
+- Psycopg2
+- Cloudinary
+
+---
+
+## Testing
+
+### Lighthouse:
+Lighthouse audits were performed to ensure high performance, accessibility, and SEO scores.
+
+### Code Validation:
+- **HTML and CSS Validation**: Verified using W3C Validators.
+- **Python Validation**: Confirmed adherence to PEP8 standards.
+
+### Manual Testing:
+- Tested all features across browsers (Chrome, Firefox, Safari) and devices (mobile, tablet, desktop).
+- Verified CRUD functionality for reservations and menu items.
+
+### Unit Tests:
+- Used Django’s `TestCase` for automated testing of models, views, and forms.
+
+---
+
