@@ -93,3 +93,30 @@ Lighthouse audits were performed to ensure high performance, accessibility, and 
 
 ---
 
+## Bugs
+
+### Fixed Bugs:
+1. Resolved issues with placeholder text not displaying on forms.
+2. Corrected improper `aria-label` assignments for accessibility compliance.
+3. Fixed a bug preventing static files from loading in production.
+
+---
+
+## Deployment
+
+### Pre-Deployment Checklist:
+1. Update `requirements.txt` using `pip freeze > requirements.txt`.
+2. Add a `Procfile` to define the application’s runtime environment.
+3. Configure environment variables:
+   - `SECRET_KEY`
+   - `DATABASE_URL`
+   - `CLOUDINARY_URL`
+
+### Deploying on Heroku:
+1. Create a Heroku account and set up a new app.
+2. Link your GitHub repository and enable automatic deploys.
+3. Add necessary configuration variables in the Heroku dashboard.
+4. Deploy the app and test live functionality.
+
+---
+
