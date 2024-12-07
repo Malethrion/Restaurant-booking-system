@@ -36,3 +36,12 @@ Explore the live application at: [Deployed Site](https://restaurant-booking-syst
 
 ---
 
+## Project Overview
+
+The **Restaurant Booking System** aims to provide a user-friendly experience for restaurant patrons to book tables and administrators to manage operations. The platform includes tools to:
+- Facilitate secure account management.
+- Enable efficient table reservations.
+- Streamline dynamic menu management.
+
+---
+
