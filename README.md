@@ -45,3 +45,17 @@ The **Restaurant Booking System** aims to provide a user-friendly experience for
 
 ---
 
+## Features
+
+### User Features:
+- **Account Registration and Login**: Users can register using Django's built-in `UserCreationForm`, allowing secure management of credentials.
+- **Reservation Management**: Book a table, view existing reservations, and make updates or cancellations.
+- **Dynamic Menu**: View categorized menu items with images, descriptions, and prices.
+
+### Admin Features:
+- **Reservation Overview**: View and manage all reservations with filters by date and status.
+- **Menu Management**: Add, update, or delete menu items and categories.
+- **CRUD Functionality**: Implemented across reservations and menu management.
+
+---
+
