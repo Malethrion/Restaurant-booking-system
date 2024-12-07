@@ -120,3 +120,48 @@ Lighthouse audits were performed to ensure high performance, accessibility, and 
 
 ---
 
+## Screenshots
+
+### Home Page
+![Home Page](./docs/screenshots/home-page.png)
+
+### Menu
+![Menu](./docs/screenshots/menu.png)
+
+### Reservation Form
+![Reservation Form](./docs/screenshots/reservation-form.png)
+
+---
+
+## References
+
+- **Django Documentation**: [https://docs.djangoproject.com/](https://docs.djangoproject.com/)
+- **Bootstrap Documentation**: [https://getbootstrap.com/](https://getbootstrap.com/)
+- **Stack Overflow**: Adapted logic for form handling and error validation.
+
+---
+
+## Credits
+
+### Content:
+- Content and functionality ideas inspired by real-world restaurant reservation systems.
+
+### Media:
+- Images sourced from [Unsplash](https://unsplash.com).
+
+### Code:
+- UI styling was implemented using [Bootstrap](https://getbootstrap.com).
+- Form handling and validation leveraged examples from Django's official documentation.
+
+---
+
+## Acknowledgements
+
+- Thanks to the Django community for extensive documentation and support forums.
+- Special appreciation to the Bootstrap team for their flexible UI components.
+- Gratitude to online resources like Stack Overflow for solving complex bugs.
+
+---
+
+This README provides a structured overview of the **Restaurant Booking System**, ensuring clarity and accessibility for collaborators and end-users.
+
