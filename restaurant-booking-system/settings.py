@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+from django.contrib.messages import constants as messages
 
 # Load environment variables from .env file
 env_path = Path(__file__).resolve().parent.parent / ".env"
@@ -133,3 +134,12 @@ EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your email password
 if DEBUG:
     print("TEMPLATE DIRS:", TEMPLATES[0]['DIRS'])
     print("BASE_DIR:", BASE_DIR)
+
+# Alert message
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
