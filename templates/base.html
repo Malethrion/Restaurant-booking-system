@@ -20,7 +20,7 @@
         </div>
     {% endif %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">Cucina Romana</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -32,10 +32,7 @@
                         <a class="nav-link" href="{% url 'list_reservations' %}">Reservations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'menu' %}">Menu</a> <!-- Added Menu Link -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -49,6 +46,9 @@
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -77,5 +77,3 @@
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
-
-
