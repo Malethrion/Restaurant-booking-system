@@ -45,7 +45,7 @@ def login_view(request):
 # User Logout
 def logout_view(request):
     logout(request)
-    messages.info(request, 'You have been logged out.')
+    messages.info(request, 'You have been logged out successfully.')
     return redirect('index')
 
 # Reservation: Create
@@ -108,22 +108,3 @@ def book_table(request):
     messages.info(request, 'Table booking feature is under development.')
     return render(request, 'bookings/book_table.html')
 
-# Login view
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            messages.success(request, f'Welcome back, {user.username}!')
-            return redirect('home')
-        else:
-            messages.error(request, 'Invalid username or password. Please try again.')
-    return render(request, 'login.html')
-
-# Logout view
-def logout_view(request):
-    logout(request)
-    messages.info(request, 'You have been logged out successfully.')
-    return redirect('home')
