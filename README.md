@@ -123,14 +123,16 @@ Lighthouse audits were performed to ensure high performance, accessibility, and 
 ## Screenshots
 
 ### Home Page
-![Home Page](./docs/screenshots/home-page.png)
+![Home Page](static/img/homepage.png)
 
 ### Menu
-![Menu](./docs/screenshots/menu.png)
+![Menu](static/img/menu.png)
 
 ### Reservation Form
-![Reservation Form](./docs/screenshots/reservation-form.png)
+![Reservation Form](static/img/reservations.png)
 
+###
+![Registration Form](static/img/registration.png)
 ---
 
 ## References
