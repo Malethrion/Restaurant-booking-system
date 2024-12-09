@@ -85,7 +85,7 @@ Lighthouse audits were performed to ensure high performance, accessibility, and 
 - **Python Validation**: Confirmed adherence to PEP8 standards.
 
 ### Manual Testing:
-- Tested all features across browsers (Chrome, Firefox, Safari) and devices (mobile, tablet, desktop).
+- Tested all features across browsers (Chrome, Firefox, Edge) and devices (mobile, tablet, desktop).
 - Verified CRUD functionality for reservations and menu items.
 
 ### Unit Tests:
