@@ -52,7 +52,7 @@ The **Restaurant Booking System** aims to provide a user-friendly experience for
 #### Press Register 
 ![Register main](static/img/register_main.png)![Register sec](static/img/register_sec.png)
 #### Fill in the form 
-![Fill in Registration form](static/img/registrations2.png)
+![Fill in Registration form](https://raw.githubusercontent.com/Malethrion/Restaurant-booking-system/refs/heads/main/static/img/registration2.png)
 #### Login
 ![Login](static/img/login2.png)
 #### Logout
@@ -60,7 +60,7 @@ The **Restaurant Booking System** aims to provide a user-friendly experience for
 
 - **Reservation Management**: Book a table, view existing reservations, and make updates or cancellations.
 #### Reservation
-![Reservation](static/img/reservation2.png)
+![Reservation](https://raw.githubusercontent.com/Malethrion/Restaurant-booking-system/refs/heads/main/static/img/reservations2.png)
 #### Fill in the form
 ![Fill in form](static/img/create_reservation.png)
 #### Current reservations
@@ -97,10 +97,16 @@ Lighthouse audits were performed to ensure high performance, accessibility, and 
 
 ### Code Validation:
 - **HTML and CSS Validation**: Verified using W3C Validators.
+![Html validation](static/img/html_validation.png)
+![CSS validation](static/img/css_validation.png)
+
 - **Python Validation**: Confirmed adherence to PEP8 standards.
+![Python validation](static/img/python_validation.png)
+- Minor issues, mostly line too long and expected blanks lines, fixes for future endeavours
 
 ### Manual Testing:
 - Tested all features across browsers (Chrome, Firefox, Edge) and devices (mobile, tablet, desktop).
+![Browser and devices](static/img/browsers.png)
 - Verified CRUD functionality for reservations and menu items.
 
 ### Unit Tests:
