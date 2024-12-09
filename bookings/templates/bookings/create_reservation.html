@@ -1,41 +1,41 @@
 {% extends 'base.html' %}
 
 {% block title %}
-New Reservation
+Create Reservation
 {% endblock %}
 
 {% block content %}
 <div class="container mt-5 p-4 rounded" style="max-width: 600px; background: rgba(255, 255, 255, 0.9); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-    <h2 class="mb-4" style="font-family: 'Georgia', serif; color: #2c3e50;">Create Reservation</h2>
+    <h2 class="text-center mb-4" style="font-family: 'Georgia', serif; color: #2c3e50;">Create Reservation</h2>
     <form method="post">
         {% csrf_token %}
-        <div class="mb-3">
+        <div class="form-group mb-3">
             {{ form.customer_name.label_tag }}
             {{ form.customer_name }}
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             {{ form.date.label_tag }}
             {{ form.date }}
             {% if form.date.help_text %}
                 <small class="form-text text-muted">{{ form.date.help_text }}</small>
             {% endif %}
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             {{ form.time.label_tag }}
             {{ form.time }}
             {% if form.time.help_text %}
                 <small class="form-text text-muted">{{ form.time.help_text }}</small>
             {% endif %}
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             {{ form.guests.label_tag }}
             {{ form.guests }}
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
             {{ form.contact_email.label_tag }}
             {{ form.contact_email }}
         </div>
-        <button type="submit" class="btn btn-primary mt-3 w-100">Save Reservation</button>
+        <button type="submit" class="btn btn-danger w-100">Save Reservation</button>
     </form>
 </div>
 {% endblock %}
