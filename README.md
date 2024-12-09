@@ -49,13 +49,27 @@ The **Restaurant Booking System** aims to provide a user-friendly experience for
 
 ### User Features:
 - **Account Registration and Login**: Users can register using Django's built-in `UserCreationForm`, allowing secure management of credentials.
+#### Press Register 
+![Register main](static/img/register_main.png)![Register sec](static/img/register_sec.png)
+#### Fill in the form 
+![Registration form](static/img/registration2.png)
+#### Login
+![Login](static/img/login2.png)
+#### Logout
+![Logout](static/img/logout.png)
 - **Reservation Management**: Book a table, view existing reservations, and make updates or cancellations.
-- **Dynamic Menu**: View categorized menu items with images, descriptions, and prices.
+#### Create a reservation
+![Create reservation](static/img/create_reservation.png)
+#### Fill in the form
+![Reservation form](static/img/reservation.png)
+#### Current reservations
+![Current reservations](static/img/current_reservations.png)
+#### Deleted reservations
+![deleted reservations](static/img/deleted_reservations.png)
 
-### Admin Features:
-- **Reservation Overview**: View and manage all reservations with filters by date and status.
-- **Menu Management**: Add, update, or delete menu items and categories.
-- **CRUD Functionality**: Implemented across reservations and menu management.
+
+## Admin Features:
+- **Implemented across reservations and menu management.**: Implemented across reservations and menu management.
 
 ---
 
@@ -131,9 +145,9 @@ Lighthouse audits were performed to ensure high performance, accessibility, and 
 ### Reservation Form
 ![Reservation Form](static/img/reservations.png)
 
-###
-![Registration Form](static/img/registration.png)
----
+### Login
+![Login](static/img/login.png)
+
 
 ## References
 
