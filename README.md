@@ -52,16 +52,17 @@ The **Restaurant Booking System** aims to provide a user-friendly experience for
 #### Press Register 
 ![Register main](static/img/register_main.png)![Register sec](static/img/register_sec.png)
 #### Fill in the form 
-![Registration form](static/img/registration2.png)
+![Fill in Registration form](static/img/registrations2.png)
 #### Login
 ![Login](static/img/login2.png)
 #### Logout
 ![Logout](static/img/logout.png)
+
 - **Reservation Management**: Book a table, view existing reservations, and make updates or cancellations.
-#### Create a reservation
-![Create reservation](static/img/create_reservation.png)
+#### Reservation
+![Reservation](static/img/reservation2.png)
 #### Fill in the form
-![Reservation form](static/img/reservation.png)
+![Fill in form](static/img/create_reservation.png)
 #### Current reservations
 ![Current reservations](static/img/current_reservations.png)
 #### Deleted reservations
