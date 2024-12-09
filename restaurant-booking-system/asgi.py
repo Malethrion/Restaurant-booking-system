@@ -1,5 +1,5 @@
 """
-ASGI config for restaurant-booking-system project.
+ASGI config for restaurant_booking_system project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -12,6 +12,6 @@ import os
 from django.core.asgi import get_asgi_application
 
 os.environ.setdefault(
-    'DJANGO_SETTINGS_MODULE', 'restaurant-booking-system.settings')
+    'DJANGO_SETTINGS_MODULE', 'restaurant_booking_system.settings')
 
 application = get_asgi_application()

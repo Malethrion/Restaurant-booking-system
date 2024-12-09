@@ -1,6 +1,5 @@
 """
-WSGI config for restaurant-booking-system project.
-
+WSGI config for restaurant_booking_system project.
 It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
