@@ -23,7 +23,7 @@ DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = [
     '8000-malethrion-restaurantbo-4hzzfmoxh8q.ws.codeinstitute-ide.net',
     'restaurant-booking-system123-2102e902d1fa.herokuapp.com',  # For your development environment
-    'restaurant-booking-system.herokuapp.com',  # For your Heroku app
+    '   ',  # For your Heroku app
 ]
 
 CSRF_TRUSTED_ORIGINS = [
