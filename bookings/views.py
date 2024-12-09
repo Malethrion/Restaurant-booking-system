@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
 from .forms import UserRegistrationForm, ReservationForm
 from .models import Reservation
 
@@ -27,6 +28,26 @@ def register(request):
         form = UserRegistrationForm()
     return render(request, 'bookings/register.html', {'form': form})
 
+# User Login
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, f'Welcome back, {user.username}!')
+            return redirect('index')
+        else:
+            messages.error(request, 'Invalid username or password. Please try again.')
+    return render(request, 'bookings/login.html')
+
+# User Logout
+def logout_view(request):
+    logout(request)
+    messages.info(request, 'You have been logged out.')
+    return redirect('index')
+
 # Reservation: Create
 @login_required
 def create_reservation(request):
@@ -48,7 +69,10 @@ def create_reservation(request):
 @login_required
 def list_reservations(request):
     reservations = Reservation.objects.filter(user=request.user)
-    messages.info(request, 'Here are your current reservations.')
+    if not reservations:
+        messages.info(request, 'You have no reservations yet.')
+    else:
+        messages.info(request, 'Here are your current reservations.')
     return render(request, 'bookings/list_reservations.html', {'reservations': reservations})
 
 # Reservation: Update
@@ -83,3 +107,23 @@ def book_table(request):
     # Logic for table booking (placeholder)
     messages.info(request, 'Table booking feature is under development.')
     return render(request, 'bookings/book_table.html')
+
+# Login view
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, f'Welcome back, {user.username}!')
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid username or password. Please try again.')
+    return render(request, 'login.html')
+
+# Logout view
+def logout_view(request):
+    logout(request)
+    messages.info(request, 'You have been logged out successfully.')
+    return redirect('home')
