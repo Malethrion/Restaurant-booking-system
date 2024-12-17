@@ -10,7 +10,6 @@ load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Secret Key from .env file
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -18,12 +17,12 @@ if not SECRET_KEY:
     raise ValueError("No SECRET_KEY set for Django application in .env")
 
 # Quick-start development settings - unsuitable for production
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     '8000-malethrion-restaurantbo-4hzzfmoxh8q.ws.codeinstitute-ide.net',
-    'restaurant-booking-system123-2102e902d1fa.herokuapp.com',  # For your development environment
-    '   ',  # For your Heroku app
+    'restaurant-booking-system123-2102e902d1fa.herokuapp.com',
+    'restaurant-booking-system.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -77,24 +76,17 @@ WSGI_APPLICATION = 'restaurant_booking_system.wsgi.application'
 # Database
 DATABASES = {
     'default': dj_database_url.config(
-        default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}'
+        default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}',
+        conn_max_age=600  # Keep PostgreSQL connections alive
     )
 }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # Redirect URLs for login/logout
@@ -103,20 +95,14 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Static and Media files
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for collected static files for production
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Directory for custom static files
-]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For collected static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
@@ -130,8 +116,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@example.com'  # Replace with your email
-EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your email password
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Email from .env file
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Password from .env file
 
 # Debugging purposes
 if DEBUG:
