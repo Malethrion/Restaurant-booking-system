@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'restaurant_booking_system.wsgi.application'
 # Database
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}'),
-        conn_max_age=600  # Keep PostgreSQL connections alive for performance
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600
     )
 }
 
