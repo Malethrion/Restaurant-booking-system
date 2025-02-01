@@ -5,8 +5,7 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 
 # Load environment variables from .env file
-env_path = Path(__file__).resolve().parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,13 +18,17 @@ if not SECRET_KEY:
 # Quick-start development settings - unsuitable for production
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
+# Allowed hosts for local & production
 ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
     '8000-malethrion-restaurantbo-4hzzfmoxh8q.ws.codeinstitute-ide.net',
     'restaurant-booking-system123-2102e902d1fa.herokuapp.com',
     'restaurant-booking-system.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
     'https://8000-malethrion-restaurantbo-4hzzfmoxh8q.ws.codeinstitute-ide.net',
     'https://restaurant-booking-system123-2102e902d1fa.herokuapp.com',
     'https://restaurant-booking-system.herokuapp.com',
@@ -58,7 +61,7 @@ ROOT_URLCONF = 'restaurant_booking_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Include templates directory
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,14 +76,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'restaurant_booking_system.wsgi.application'
 
-# Database
+# Database configuration
+DATABASE_URL = os.getenv('DATABASE_URL')
+if not DATABASE_URL:
+    print("⚠️ WARNING: DATABASE_URL is not set! Using SQLite instead.")
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}'),
-        conn_max_age=600  # Keep PostgreSQL connections alive for performance
+        default=DATABASE_URL or f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}',
+        conn_max_age=600
     )
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -102,12 +108,21 @@ USE_TZ = True
 
 # Static and Media files
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For collected static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+if DEBUG:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Add static and media URLs for development
+if DEBUG:
+    from django.conf import settings
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -117,15 +132,19 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Email from .env file
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Password from .env file
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Use console email backend for local development
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Debugging purposes
 if DEBUG:
     print("TEMPLATE DIRS:", TEMPLATES[0]['DIRS'])
     print("BASE_DIR:", BASE_DIR)
 
-# Alert message
+# Alert messages
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
     messages.INFO: 'alert-info',
