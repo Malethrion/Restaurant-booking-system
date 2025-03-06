@@ -110,17 +110,24 @@ The design prioritizes user experience (UX) with a clean, responsive layout usin
 ## Testing
 
 ### Manual Testing
+
 | Feature                  | Action                          | Expected Result                                      | Actual Result                                      |
 |--------------------------|---------------------------------|-----------------------------------------------------|---------------------------------------------------|
 | Home Page                | View landing page               | Displays hero section, navigation, and reservation call-to-action | Functions as intended                              |
 | Registration             | Register a new user             | Creates account, logs in, shows success message     | Functions as intended                              |
 | Login/Logout             | Log in/out with credentials     | Logs in/out, updates navbar, shows feedback         | Functions as intended                              |
-| Create Reservation       | Fill and submit reservation form | Creates reservation, redirects to list, shows success | Functions as intended                              |
-| View Reservations        | View user reservations          | Lists all reservations with edit/delete options     | Functions as intended                              |
-| Update Reservation       | Edit an existing reservation    | Updates reservation, shows success, redirects       | Functions as intended                              |
+| Create Reservation       | Submit form with valid data     | Creates reservation, redirects to list, shows success | Functions as intended                              |
+| Create Reservation       | Submit form with past date      | Shows error: "Reservations cannot be made for past dates." | Functions as intended                              |
+| Create Reservation       | Submit form with negative guests | Shows error: "Number of guests must be positive."   | Functions as intended                              |
+| Create Reservation       | Submit form with invalid email  | Shows error: "Enter a valid email address (e.g., user@example.com)." | Functions as intended                              |
+| Create Reservation       | Submit form with valid non-Gmail/Yahoo email | Accepts email (e.g., `jin.norden@hotmail.com`), creates reservation | Functions as intended                              |
+| Update Reservation       | Edit with valid data            | Updates reservation, shows success, redirects       | Functions as intended                              |
+| Update Reservation       | Edit with past date             | Shows error: "Reservations cannot be made for past dates." | Functions as intended                              |
+| Update Reservation       | Edit with negative guests       | Shows error: "Number of guests must be positive."   | Functions as intended                              |
+| Update Reservation       | Edit with invalid email         | Shows error: "Enter a valid email address (e.g., user@example.com)." | Functions as intended                              |
+| Update Reservation       | Edit with valid non-Gmail/Yahoo email | Accepts email (e.g., `jin.norden@hotmail.com`), updates reservation | Functions as intended                              |
 | Delete Reservation       | Delete a reservation            | Removes reservation, shows success, redirects       | Functions as intended                              |
 | Menu Page                | View menu items                 | Displays menu categories with images and prices     | Functions as intended                              |
-
 
 #### Screenshots and Evidence
 - **Home Page**: 
@@ -168,6 +175,30 @@ The design prioritizes user experience (UX) with a clean, responsive layout usin
 ![Deleted Reservations](static/img/deleted_reservations.png) 
 
 "Screenshot of a deleted reservation confirmation."
+
+- **Create Reservation - Validation Errors**: 
+
+![Validation Errors Create](static/img/validation_errors_create.png) 
+
+"Screenshot showing validation errors for past date, negative guests, and invalid email."
+
+- **Create Reservation - Invalid Email**: 
+
+![Invalid Email](static/img/edge_case_invalid_email.png) 
+
+"Screenshot showing validation error for an invalid email format (e.g., `not_an_email`)."
+
+- **Create Reservation - Valid Non-Gmail Email**: 
+
+![Valid Non-Gmail Email](static/img/valid_email_hotmail.png) 
+
+"Screenshot showing successful submission with a Hotmail email (e.g., `jin.norden@hotmail.com`)."
+
+- **Update Reservation - Validation Errors**: 
+
+![Validation Errors Update](static/img/validation_errors_update.png) 
+
+"Screenshot showing validation errors for past date, negative guests, and invalid email."
 
 - **Menu**: 
 
