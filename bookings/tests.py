@@ -38,46 +38,87 @@ class ReservationTests(TestCase):
         self.assertTrue(Reservation.objects.filter(customer_name='Test User').exists())
 
     def test_reservation_form_validation(self):
-        form = ReservationForm(data={
-            'customer_name': 'Test User',
-            'date': date.today().isoformat(),
-            'time': '18:00',
-            'guests': 4,
-            'contact_email': 'test@gmail.com'
-        })
-        self.assertTrue(form.is_valid())
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '18:00',
+        'guests': 4,
+        'contact_email': 'test@gmail.com'
+    })
+    self.assertTrue(form.is_valid())
 
-        # Test invalid cases
-        form = ReservationForm(data={
-            'customer_name': 'Test User',
-            'date': date(2023, 1, 1),  # Past date
-            'time': '18:00',
-            'guests': 4,
-            'contact_email': 'test@gmail.com'
-        })
-        self.assertFalse(form.is_valid())
-        self.assertIn('date', form.errors)
+    # Test invalid cases
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date(2023, 1, 1),  # Past date
+        'time': '18:00',
+        'guests': 4,
+        'contact_email': 'test@gmail.com'
+    })
+    self.assertFalse(form.is_valid())
+    self.assertIn('date', form.errors)
 
-        form = ReservationForm(data={
-            'customer_name': 'Test User',
-            'date': date.today().isoformat(),
-            'time': '18:00',
-            'guests': -1,  # Negative guests
-            'contact_email': 'test@gmail.com'
-        })
-        self.assertFalse(form.is_valid())
-        self.assertIn('guests', form.errors)
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '18:00',
+        'guests': -1,  # Negative guests
+        'contact_email': 'test@gmail.com'
+    })
+    self.assertFalse(form.is_valid())
+    self.assertIn('guests', form.errors)
 
-        form = ReservationForm(data={
-            'customer_name': 'Test User',
-            'date': date.today().isoformat(),
-            'time': '09:00',  # Outside hours
-            'guests': 4,
-            'contact_email': 'test@invalid.com'  # Invalid email
-        })
-        self.assertFalse(form.is_valid())
-        self.assertIn('time', form.errors)
-        self.assertIn('contact_email', form.errors)
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '09:00',  # Outside hours
+        'guests': 4,
+        'contact_email': 'test@gmail.com'
+    })
+    self.assertFalse(form.is_valid())
+    self.assertIn('time', form.errors)
+
+    # Test invalid email formats
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '18:00',
+        'guests': 4,
+        'contact_email': 'not_an_email'  # No @ symbol
+    })
+    self.assertFalse(form.is_valid())
+    self.assertIn('contact_email', form.errors)
+    self.assertEqual(form.errors['contact_email'], ['Enter a valid email address (e.g., user@example.com).'])
+
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '18:00',
+        'guests': 4,
+        'contact_email': 'user@'  # Incomplete domain
+    })
+    self.assertFalse(form.is_valid())
+    self.assertIn('contact_email', form.errors)
+
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '18:00',
+        'guests': 4,
+        'contact_email': 'user@domain'  # Missing top-level domain
+    })
+    self.assertFalse(form.is_valid())
+    self.assertIn('contact_email', form.errors)
+
+    # Test valid email with non-Gmail/Yahoo domain
+    form = ReservationForm(data={
+        'customer_name': 'Test User',
+        'date': date.today().isoformat(),
+        'time': '18:00',
+        'guests': 4,
+        'contact_email': 'jin.norden@hotmail.com'  # Valid email, previously rejected
+    })
+    self.assertTrue(form.is_valid())
 
     def test_reservation_list_view(self):
         Reservation.objects.create(
