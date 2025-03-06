@@ -51,6 +51,7 @@ def logout_view(request):
 # Reservation: Create
 @login_required
 def create_reservation(request):
+    """Handle the creation of a new reservation for authenticated users."""
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -59,8 +60,7 @@ def create_reservation(request):
             reservation.save()
             messages.success(request, 'Reservation created successfully!')
             return redirect('list_reservations')
-        else:
-            messages.error(request, 'There was an error creating the reservation. Please try again.')
+        # Remove generic error message; errors are now displayed in the template
     else:
         form = ReservationForm()
     return render(request, 'bookings/create_reservation.html', {'form': form})
@@ -78,6 +78,7 @@ def list_reservations(request):
 # Reservation: Update
 @login_required
 def update_reservation(request, pk):
+    """Handle updating an existing reservation for authenticated users."""
     reservation = get_object_or_404(Reservation, pk=pk, user=request.user)
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=reservation)
@@ -85,8 +86,7 @@ def update_reservation(request, pk):
             form.save()
             messages.success(request, 'Reservation updated successfully!')
             return redirect('list_reservations')
-        else:
-            messages.error(request, 'There was an error updating the reservation. Please try again.')
+        # Remove generic error message; errors are now displayed in the template
     else:
         form = ReservationForm(instance=reservation)
     return render(request, 'bookings/update_reservation.html', {'form': form})
