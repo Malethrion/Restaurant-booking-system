@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Reservation
 from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator
 from datetime import datetime, date
 
 class UserRegistrationForm(UserCreationForm):
@@ -43,8 +44,11 @@ class ReservationForm(forms.ModelForm):
 
     def clean_contact_email(self):
         email = self.cleaned_data['contact_email']
-        if not email.endswith('@gmail.com') and not email.endswith('@yahoo.com'):  # Example restriction
-            raise ValidationError("Please use a Gmail or Yahoo email address.")
+        validator = EmailValidator(message="Enter a valid email address (e.g., user@example.com).")
+        try:
+            validator(email)
+        except ValidationError as e:
+            raise ValidationError("Enter a valid email address (e.g., user@example.com).")
         return email
 
     def clean_time(self):
