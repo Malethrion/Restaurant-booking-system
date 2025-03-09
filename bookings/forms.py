@@ -30,11 +30,12 @@ class ReservationForm(forms.ModelForm):
             'time': 'Please use the format HH:MM (restaurant hours: 11:00–22:00).',
         }
 
-    # Override the contact_email field to set a custom validator
+    # Override the contact_email field with a custom validator, disabling model-level validation
     contact_email = forms.EmailField(
         validators=[
             EmailValidator(message="Enter a valid email address (e.g., user@example.com).")
-        ]
+        ],
+        required=True  # Ensure this matches the model's requirement
     )
 
     def clean_date(self):
@@ -65,3 +66,10 @@ class ReservationForm(forms.ModelForm):
         if time_value < restaurant_open or time_value > restaurant_close:
             raise ValidationError("Reservations must be between 11:00 and 22:00.")
         return time_value
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Ensure the form's contact_email field overrides the model's EmailField validation
+        self.fields['contact_email'].validators = [
+            EmailValidator(message="Enter a valid email address (e.g., user@example.com).")
+        ]

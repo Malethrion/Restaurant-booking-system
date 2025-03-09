@@ -9,6 +9,9 @@ class Reservation(models.Model):
     guests = models.IntegerField()  # Number of guests
     contact_email = models.EmailField()  # Contact email for the reservation
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.customer_name} - {self.date} {self.time}"
 
 # FAQ model: Stores frequently asked questions and their answers for the FAQ page.
 class FAQ(models.Model):
