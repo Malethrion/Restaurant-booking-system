@@ -180,19 +180,13 @@ The design prioritizes user experience (UX) with a clean, responsive layout usin
 
 ![Validation Errors Create](static/img/validation_errors_create.png) 
 
-"Screenshot showing validation errors for past date, negative guests, and invalid email."
+"Screenshot showing validation errors for past date, negative guests."
 
 - **Create Reservation - Invalid Email**: 
 
 ![Invalid Email](static/img/edge_case_invalid_email.png) 
 
 "Screenshot showing validation error for an invalid email format (e.g., `not_an_email`)."
-
-- **Create Reservation - Valid Non-Gmail Email**: 
-
-![Valid Non-Gmail Email](static/img/valid_email_hotmail.png) 
-
-"Screenshot showing successful submission with a Hotmail email (e.g., `jin.norden@hotmail.com`)."
 
 - **Update Reservation - Validation Errors**: 
 
@@ -207,12 +201,26 @@ The design prioritizes user experience (UX) with a clean, responsive layout usin
 "Screenshot of the menu page."
 
 ### Automated Testing
+
 | Test Case                | Method                          | Expected Result                                      | Actual Result                                      |
 |--------------------------|---------------------------------|-----------------------------------------------------|---------------------------------------------------|
 | Test Reservation Model   | `test_reservation_model`        | Validates `Reservation` model fields (e.g., `customer_name`, `date`) | Functions as intended                              |
 | Test Reservation CRUD    | `test_reservation_crud`         | Ensures create, read, update, delete operations work | Functions as intended                              |
+| Test Form Validation     | `test_reservation_form_validation` | Validates form rejects past dates, negative guests, invalid emails | Functions as intended                              |
 | Test User Authentication | `test_user_auth`                | Verifies registration, login, logout functionality  | Functions as intended                              |
-| *Expand automated tests in `tests.py` to cover forms, views, and edge cases (e.g., invalid dates, negative guests). Document results here.* |
+| Test Unauthenticated Access | `test_unauthenticated_access` | Redirects unauthenticated users to login page      | Functions as intended                              |
+
+#### Test Results
+- **Test Output**: ![Test Results](static/img/test_results_sqlite_success.png) 
+
+"Screenshot of successful automated test run using SQLite database."
+
+- **Resolution**: Tests initially failed due to a 'permission denied to create database' error with the remote PostgreSQL database. To avoid the complexity of setting up a local PostgreSQL instance, `settings.py` was updated to use SQLite for testing (`ENGINE: 'django.db.backends.sqlite3'`). Additional issues were resolved: (1) Updated `ReservationForm` to ensure a single custom email validation message (`Enter a valid email address (e.g., user@example.com).`) matches the test; (2) Fixed `test_unauthenticated_access` by updating `urls.py` to remove redundant `/accounts/login/` routes and ensure `LOGIN_URL = '/login/'` redirects unauthenticated users correctly. All tests now pass successfully.
+
+#### Troubleshooting
+- If tests fail with a database connection error, ensure `DATABASE_URL` in `.env` is set for production but overridden in `settings.py` for testing. Delete and recreate `db.sqlite3` by running `python manage.py migrate` if schema issues occur.
+- If form or authentication tests fail, verify `ReservationForm`’s `contact_email` validation and `LOGIN_URL` in `settings.py` match the URL patterns in `urls.py`.
+Steps for You:
 
 ### Lighthouse
 - Audits performed using Google Lighthouse to ensure high performance, accessibility, and SEO scores.
