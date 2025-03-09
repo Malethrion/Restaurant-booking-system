@@ -107,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Redirect URLs for login/logout
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 

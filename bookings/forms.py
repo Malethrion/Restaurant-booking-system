@@ -30,6 +30,13 @@ class ReservationForm(forms.ModelForm):
             'time': 'Please use the format HH:MM (restaurant hours: 11:00–22:00).',
         }
 
+    # Override the contact_email field to set a custom validator
+    contact_email = forms.EmailField(
+        validators=[
+            EmailValidator(message="Enter a valid email address (e.g., user@example.com).")
+        ]
+    )
+
     def clean_date(self):
         date_value = self.cleaned_data['date']
         if date_value < date.today():
