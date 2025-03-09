@@ -178,21 +178,22 @@ The design prioritizes user experience (UX) with a clean, responsive layout usin
 
 - **Create Reservation - Validation Errors**: 
 
-![Validation Errors Create](static/img/validation_errors_create.png) 
+![Past Date](static/img/reservations_past_date.png) 
 
-"Screenshot showing validation errors for past date, negative guests."
+"Screenshot showing validation errors for past date."
 
-- **Create Reservation - Invalid Email**: 
+![Invalid Time](static/img/reservations_invalid_time.png) 
 
-![Invalid Email](static/img/edge_case_invalid_email.png) 
+"Screenshot showing validation errors for invalid time."
+
+![Negative Guests](static/img/reservations_negative_guests.png)
+
+"Screenshot showing validation errors for negative guests."
+
+![Invalid Email](static/img/reservations_invalid_email.png) 
 
 "Screenshot showing validation error for an invalid email format (e.g., `not_an_email`)."
 
-- **Update Reservation - Validation Errors**: 
-
-![Validation Errors Update](static/img/validation_errors_update.png) 
-
-"Screenshot showing validation errors for past date, negative guests, and invalid email."
 
 - **Menu**: 
 
