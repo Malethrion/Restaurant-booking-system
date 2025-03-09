@@ -82,12 +82,21 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 if not DATABASE_URL:
     print("⚠️ WARNING: DATABASE_URL is not set! Using SQLite instead.")
 
+# Default to PostgreSQL for production, but override for testing
 DATABASES = {
     'default': dj_database_url.config(
         default=DATABASE_URL or f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}',
         conn_max_age=600
     )
 }
+
+# Use SQLite for testing to avoid PostgreSQL permission issues
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
