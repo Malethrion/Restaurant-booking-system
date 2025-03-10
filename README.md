@@ -75,19 +75,27 @@ The **Restaurant Booking System** aims to enhance restaurant operations by provi
 ### Wireframes and Mockups
 *Wireframes and a mockup for the Restaurant Booking System were created using screenshots from the deployed website ([https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/](https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/)) as a foundation, placed on a clean white background with simple annotations to reflect the design process. These are provided below:*
 
-- **Home Page Wireframe**: ![Home Wireframe](static/img/wireframe_home.png) 
+- **Home Page Wireframe**: 
+
+![Home Wireframe](static/img/wireframe_home.png) 
 
 "Wireframe showing the layout of the navigation, hero section, and footer."
 
-- **Reservations Page Mockup**: ![Reservations Mockup](static/img/mockup_reservations.png) 
+- **Reservations Page Mockup**: 
+
+![Reservations Mockup](static/img/mockup_reservations.png) 
 
 "Mockup of the reservation form with styled elements and annotations."
 
-- **Menu Page Wireframe**: ![Menu Wireframe](static/img/wireframe_menu.png) 
+- **Menu Page Wireframe**: 
+
+![Menu Wireframe](static/img/wireframe_menu.png) 
 
 "Wireframe showing the layout of menu categories and items."
 
-- **Design Process**: ![Design Process](static/img/design_process.png) 
+- **Design Process**: 
+
+![Design Process](static/img/design_process.png) 
 
 "Screenshot of the deployed app used as a reference for creating wireframes and mockup."
 
@@ -280,8 +288,12 @@ No known issues at this time.
 ## Agile Methodology
 
 ### User Stories, Epics, and Prioritization
-*Include a screenshot or description of your GitHub Projects/Kanban board showing user stories mapped to epics, prioritized, and segmented into sprints. Save as `static/img/kanban_board.png` and link below:*
-- **Kanban Board**: ![Kanban Board](static/img/kanban_board.png) "Screenshot of GitHub Projects showing user stories, epics, and sprints."
+*I used a Kanban board in Trello to manage my project tasks, moving them from To Do to Done as I completed them.*
+- **Kanban Board**: 
+
+![Kanban Board](static/img/kanban_board.png) 
+
+"Screenshot of the Kanban board showing project progress."
 
 ### User Acceptance Criteria
 - **User Story 1 (Register)**: “As a user, I can register an account to access reservation features.”
@@ -297,7 +309,13 @@ No known issues at this time.
 
 ### Schema and Relationships
 - **Reservation Model**: Stores booking details (`customer_name`, `date`, `time`, `guests`, `contact_email`, linked to `User` via `ForeignKey`).
-  - **Diagram**: ![Data Model](static/img/data_model.png) "Diagram showing `Reservation` and `User` relationships."
+
+  - **Diagram**: 
+  
+  ![Data Model](static/img/data_model.png) 
+  
+  "Diagram showing `Reservation` and `User` relationships."
+  
 - **User Model**: Uses Django’s default `User` model for authentication, linked to `Reservation` for ownership.
 
 ---
