@@ -256,24 +256,37 @@ Key metrics include First Contentful Paint (FCP) at 1.8s and Largest Contentful 
 
 "Screenshot of Lighthouse audit results for the homepage."
 
-### Code Validation
-- **HTML Validation**: Verified using W3C HTML Validator, passing without errors. 
+## Code Validation
+This section documents the validation of HTML, CSS, and Python code to ensure adherence to W3C standards and PEP 8 guidelines, enhancing code quality and maintainability.
 
-![HTML Validation](static/img/html_validation.png) 
+- **HTML Validation**: 
+  Verified using the W3C Markup Validator ([validator.w3.org](https://validator.w3.org/)) by auditing the deployed site ([https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/](https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/)). The validation passed without errors, confirming well-formed HTML.
 
-"Screenshot of W3C HTML validation results."
+  - **Screenshot**: 
 
-- **CSS Validation**: Verified using W3C CSS Validator, passing without errors. 
+  ![HTML Validation](static/img/html_validation.png) 
+  
+  "Screenshot of W3C HTML validation results showing no errors."
 
-![CSS Validation](static/img/css_validation.png) 
+- **CSS Validation**: 
+  Verified using the W3C CSS Validator ([jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)) on the deployed site. The validation passed without errors, ensuring compliant and error-free CSS styling. 
 
-"Screenshot of W3C CSS validation results."
+  - **Screenshot**: 
+  
+  ![CSS Validation](static/img/css_validation.png) 
+  
+  "Screenshot of W3C CSS validation results showing no errors."
 
-- **Python Validation**: Confirmed adherence to PEP8 standards using `flake8` or similar tools, resolving minor issues (e.g., line length, blank lines). 
+- **Python Validation**: 
+  Confirmed adherence to PEP 8 standards using `flake8`, run on all Python files (e.g., `bookings/`, `manage.py`). Minor issues, such as line length exceeding 79 characters (e.g., in the `clean_date` method's `ValidationError` message), were identified. These were resolved by adjusting long lines, including changing "cannot" to "can't" to reduce the message length. The final validation showed no issues, ensuring consistent code style.
 
-![Python Validation](static/img/python_validation.png) 
+  - **Screenshot**: 
+  
+  ![Python Validation](static/img/python_validation.png) 
+  
+  "Screenshot of Python validation results using flake8 after resolving issues."
 
-"Screenshot of Python validation results."
+*Note*: Validation was performed on March 10, 2025. Due to time constraints, some suggestions (e.g., adding alt text for accessibility) were noted for future improvements but not implemented for this submission.
 
 ### Browser and Device Testing
 - Tested on Chrome, Firefox, Edge (desktop), and Safari (mobile) using BrowserStack or local testing.
