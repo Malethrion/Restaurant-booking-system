@@ -367,13 +367,13 @@ No known issues at this time.
    heroku login
 3. Create a new Heroku app:
    ```bash
-   heroku create restaurant-booking-system
+   heroku create restaurant-booking-system123-2102e902d1fa
 4. Set environment variables in Heroku:
    ```bash
-   heroku config:set SECRET_KEY="your-secret-key"
-   heroku config:set DATABASE_URL="your-postgres-url"
-   heroku config:set EMAIL_HOST_USER="your-email"
-   heroku config:set EMAIL_HOST_PASSWORD="your-password"
+   heroku config:set SECRET_KEY="your-secret-key" --app restaurant-booking-system123-2102e902d1fa
+   heroku config:set DATABASE_URL="your-postgres-url" --app restaurant-booking-system123-2102e902d1fa
+   heroku config:set EMAIL_HOST_USER="your-email" --app restaurant-booking-system123-2102e902d1fa
+   heroku config:set EMAIL_HOST_PASSWORD="your-password" --app restaurant-booking-system123-2102e902d1fa
 5. Deploy the app:
    ```bash
    git push heroku main
