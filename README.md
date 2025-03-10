@@ -243,11 +243,18 @@ The design process utilized screenshots from the deployed website to ensure cons
 Steps for You:
 
 ### Lighthouse
-- Audits performed using Google Lighthouse to ensure high performance, accessibility, and SEO scores.
+I used Google Lighthouse to audit the deployed site ([https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/](https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/)) for performance, accessibility, best practices, and SEO. The homepage achieved the following scores on March 10, 2025, using an emulated Moto G Power device with slow 4G throttling:
+- **Performance**: 74
+- **Accessibility**: 80
+- **Best Practices**: 96
+- **SEO**: 91
+Key metrics include First Contentful Paint (FCP) at 1.8s and Largest Contentful Paint (LCP) at 25.1s. The audit identified areas for improvement, such as optimizing images (e.g., using next-gen formats like WebP, reducing file sizes), adding accessible names to buttons, and including a meta description for SEO. Due to time constraints, these optimizations will be addressed in future iterations.
 
-- **Screenshots**: ![Lighthouse Report](static/img/lighthouse_report.png) 
+- **Lighthouse Report**: 
 
-"Screenshot of Lighthouse scores for performance, accessibility, SEO."
+![Lighthouse Report](static/img/lighthouse_report.png) 
+
+"Screenshot of Lighthouse audit results for the homepage."
 
 ### Code Validation
 - **HTML Validation**: Verified using W3C HTML Validator, passing without errors. 
@@ -315,7 +322,7 @@ No known issues at this time.
   ![Data Model](static/img/data_model.png) 
   
   "Diagram showing `Reservation` and `User` relationships."
-  
+
 - **User Model**: Uses Django’s default `User` model for authentication, linked to `Reservation` for ownership.
 
 ---
