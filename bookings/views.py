@@ -28,7 +28,8 @@ def register(request):
             return redirect("login")
         else:
             messages.error(
-                request, "Registration failed. Please correct the errors below."
+                request,
+                "Registration failed. Please correct the errors below."
             )
     else:
         form = UserRegistrationForm()
@@ -46,7 +47,9 @@ def login_view(request):
             messages.success(request, f"Welcome back, {user.username}!")
             return redirect("index")
         else:
-            messages.error(request, "Invalid username or password. Please try again.")
+            messages.error(
+                request, "Invalid username or password. Please try again."
+            )
     return render(request, "bookings/login.html")
 
 
@@ -83,7 +86,8 @@ def list_reservations(request):
     else:
         messages.info(request, "Here are your current reservations.")
     return render(
-        request, "bookings/list_reservations.html", {"reservations": reservations}
+        request, "bookings/list_reservations.html",
+                 {"reservations": reservations}
     )
 
 
@@ -111,7 +115,10 @@ def delete_reservation(request, pk):
         reservation.delete()
         messages.success(request, "Reservation deleted successfully.")
         return redirect("list_reservations")
-    return render(request, "bookings/delete_reservation.html", {"reservation": reservation})
+    return render(
+        request, "bookings/delete_reservation.html",
+                 {"reservation": reservation}
+    )
 
 
 # Table Booking (Placeholder)

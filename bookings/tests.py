@@ -15,7 +15,10 @@ class ReservationTests(TestCase):
         self.client.login(username="testuser", password="testpass123")
 
     def test_reservation_model(self):
-        """Test that the Reservation model creates and retrieves data correctly."""
+        """
+        Test that the Reservation model
+        creates and retrieves data correctly.
+        """
         reservation = Reservation.objects.create(
             customer_name="Test User",
             date=date.today(),
@@ -28,7 +31,9 @@ class ReservationTests(TestCase):
         self.assertEqual(reservation.guests, 4)
 
     def test_reservation_create_view(self):
-        """Test the create reservation view renders and processes form submissions."""
+        """Test the create reservation view
+        renders and processes form submissions.
+        """
         response = self.client.get("/reservations/new/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "bookings/create_reservation.html")
@@ -44,7 +49,9 @@ class ReservationTests(TestCase):
             },
         )
         self.assertEqual(response.status_code, 302)  # Redirect
-        self.assertTrue(Reservation.objects.filter(customer_name="Test User").exists())
+        self.assertTrue(
+            Reservation.objects.filter(customer_name="Test User").exists()
+        )
 
     def test_reservation_form_validation(self):
         """Test the ReservationForm validation for valid and invalid inputs."""
@@ -145,13 +152,13 @@ class ReservationTests(TestCase):
                 "date": date.today().isoformat(),
                 "time": "18:00",
                 "guests": 4,
-                "contact_email": "jin.norden@hotmail.com",  # Valid email, previously rejected
+                "contact_email": "jin.norden@hotmail.com",
             }
         )
         self.assertTrue(form.is_valid())
 
     def test_reservation_list_view(self):
-        """Test the reservation list view displays user reservations correctly."""
+        """Test that the reservation list view shows user reservations."""
         Reservation.objects.create(
             customer_name="Test User",
             date=date.today(),

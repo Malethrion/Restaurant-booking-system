@@ -72,7 +72,8 @@ class ReservationForm(forms.ModelForm):
         restaurant_open = datetime.strptime("11:00", "%H:%M").time()
         restaurant_close = datetime.strptime("22:00", "%H:%M").time()
         if time_value < restaurant_open or time_value > restaurant_close:
-            raise ValidationError("Reservations must be between 11:00 and 22:00.")
+            raise ValidationError(
+                "Reservations must be between 11:00 and 22:00.")
         return time_value
 
     def __init__(self, *args, **kwargs):
