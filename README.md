@@ -73,16 +73,27 @@ The **Restaurant Booking System** aims to enhance restaurant operations by provi
 ## Design Process
 
 ### Wireframes and Mockups
-*Include visual representations of the design process here. Provide images of wireframes or mockups for each page (e.g., Home, Reservations, Menu). Save these as `static/img/wireframe_home.png`, `static/img/mockup_reservations.png`, etc., and link them below:*
-- **Home Page Wireframe**: ![Home Wireframe](static/img/wireframe_home.png) "Wireframe showing the hero section and navigation."
-- **Reservations Page Mockup**: ![Reservations Mockup](static/img/mockup_reservations.png) "Mockup of the reservation list and form."
-- **Menu Page Wireframe**: ![Menu Wireframe](static/img/wireframe_menu.png) "Wireframe showing menu categories and images."
+*Wireframes and a mockup for the Restaurant Booking System were created using screenshots from the deployed website ([https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/](https://restaurant-booking-system123-2102e902d1fa.herokuapp.com/)) as a foundation, placed on a clean white background with simple annotations to reflect the design process. These are provided below:*
+
+- **Home Page Wireframe**: ![Home Wireframe](static/img/wireframe_home.png) 
+
+"Wireframe showing the layout of the navigation, hero section, and footer."
+
+- **Reservations Page Mockup**: ![Reservations Mockup](static/img/mockup_reservations.png) 
+
+"Mockup of the reservation form with styled elements and annotations."
+
+- **Menu Page Wireframe**: ![Menu Wireframe](static/img/wireframe_menu.png) 
+
+"Wireframe showing the layout of menu categories and items."
+
+- **Design Process**: ![Design Process](static/img/design_process.png) 
+
+"Screenshot of the deployed app used as a reference for creating wireframes and mockup."
+
 
 ### Design Reasoning
-The design prioritizes user experience (UX) with a clean, responsive layout using Bootstrap 5 and custom CSS. Key decisions include:
-- **Navigation**: A navbar with clear links for Reservations, Menu, Login/Register/Logout, ensuring accessibility.
-- **Forms**: Intuitive reservation forms with date/time pickers and validation, styled for readability.
-- **Responsiveness**: Media queries ensure compatibility across devices (mobile, tablet, desktop), adhering to UX principles.
+The design process utilized screenshots from the deployed website to ensure consistency with the live app’s layout and styling (e.g., marble background, Georgia font, red buttons). These were placed on a white background in Paint, with annotations added to highlight key elements (e.g., navigation, form fields, menu categories). This simplified approach allowed for a quick yet effective representation of the Home, Reservations, and Menu pages, reflecting the app’s user flow and aesthetic.
 
 ---
 
